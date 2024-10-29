@@ -82,7 +82,10 @@ class VideoCarousel extends DataElement<MediaFile> {
 	currentVideo = 0;
 
 	dataUpdated(data: MediaFile[]) {
-		data.forEach((file) => file.sources.forEach((source) => source.src = this.makeHref(source.src)));
+		data.forEach((file) => {
+			file.poster = this.makeHref(file.poster);
+			file.sources.forEach((source) => source.src = this.makeHref(source.src));
+		});
 	}
 
 	#renderVideos() {

@@ -34,7 +34,5 @@ export class PreviewClick extends Event {
 			bubbles: true,
 			composed: true,
 		});
-
-        console.log("sending @preview event with", this);
 	}
 }

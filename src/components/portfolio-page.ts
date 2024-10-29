@@ -2,6 +2,8 @@ import { LitElement, html, css } from "lit";
 import { customElement } from "lit/decorators.js";
 import { hrefFromNav, nav } from "../utils/nav";
 import { repeat } from "lit/directives/repeat.js";
+import { applyAppBase } from "../utils/vite";
+import { classMap } from "lit/directives/class-map.js";
 
 @customElement("portfolio-page")
 class PortfolioPage extends LitElement {
@@ -31,6 +33,10 @@ class PortfolioPage extends LitElement {
             padding: 2rem;
             margin-bottom: 2rem;
             overflow: hidden;
+        }
+
+        .pos-relative {
+            position: relative;
         }
 
 		nav {
@@ -77,32 +83,34 @@ class PortfolioPage extends LitElement {
 	`;
 
 	static properties = {
-		name: { type: String }
+		name: { type: String },
+		position: { type: String },
 	};
 
 	name: string;
+	position: string|undefined;
 
 	render() {
-		const { name: currentName } = this;
+		const { name: currentName, position } = this;
 
 		return html`
 		<div class="container">
-			<img src="/images/light.png" alt="Light effect" class="light-effect">
+			<img src=${applyAppBase("/images/light.png")} alt="Light effect" class="light-effect">
 
 			<nav class="section">
-				<img src="/images/logo.png" alt="WAVES Logo" class="logo">
+				<img src=${applyAppBase("/images/logo.png")} alt="WAVES Logo" class="logo">
 				<ul>
 					${repeat(
 						nav,
 						({ name }) => name,
 						(item) => html`
-							<li class=${item.name === currentName ? "here" : ""}><a href=${hrefFromNav(item)}>${item.label}</a></li>
+							<li class=${item.name === currentName ? "here" : ""}><a href=${applyAppBase(hrefFromNav(item))}>${item.label}</a></li>
 						`
 					)}
 				</ul>
 			</nav>
 
-			<section class="section" id=${currentName}>
+			<section class=${classMap({ section: true, [`pos-${position}`]: !!position })} id=${currentName}>
 				<slot></slot>
 			</section>
 		</div>

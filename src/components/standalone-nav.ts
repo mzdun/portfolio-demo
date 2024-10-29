@@ -2,6 +2,7 @@ import { LitElement, html, css } from "lit";
 import { customElement } from "lit/decorators.js";
 import { nav, NavItem } from "../utils/nav";
 import { repeat } from "lit/directives/repeat.js";
+import { applyAppBase } from "../utils/vite";
 
 export function fragmentFromNav({name, href}: NavItem) {
 	return href ? '#home' : `#${name}`
@@ -79,10 +80,10 @@ class StandaloneNav extends LitElement {
 	render() {
 		return html`
 		<div class="container">
-			<img src="/images/light.png" alt="Light effect" class="light-effect">
+			<img src=${applyAppBase("/images/light.png")} alt="Light effect" class="light-effect">
 
 			<nav class="section">
-				<img src="/images/logo.png" alt="WAVES Logo" class="logo">
+				<img src=${applyAppBase("/images/logo.png")} alt="WAVES Logo" class="logo">
 				<ul>
 					${repeat(
 						nav.filter(({onlySplit}) => !onlySplit),

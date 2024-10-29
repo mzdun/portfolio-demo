@@ -1,11 +1,13 @@
-import { LitElement, html, css } from "lit";
+import { LitElement, html, css, unsafeCSS } from "lit";
 import { customElement } from "lit/decorators.js";
+import { applyAppBase } from "../utils/vite";
+
+const bgImg = applyAppBase('/images/hero-image.jpg');
 
 @customElement("brand-intro")
 class BrandIntro extends LitElement {
 	static styles = css`
 		:host {
-            position: relative;
             height: 300px;
             display: flex;
             align-items: center;
@@ -26,7 +28,7 @@ class BrandIntro extends LitElement {
             height: 100%;
             background-size: cover;
             background-position: center;
-			background-image: url('/images/hero-image.jpg')
+			background-image: ${unsafeCSS(`url("${bgImg}")`)}
         }
 	`;
 	render() {

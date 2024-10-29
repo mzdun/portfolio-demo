@@ -34,12 +34,12 @@ jobs:
       - name: Setup Pages
         run: |
           yarn install
-          yarn build
+          yarn build --base /portfolio-demo/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
-          path: './dist/'
+          path: "./dist/"
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

@@ -1,4 +1,4 @@
-import { UserConfig } from "vite";
+import { UserConfig, defineConfig, resolveConfig } from "vite";
 import { resolve } from 'path';
 import { existsSync } from 'fs';
 import { hrefFromNav, nav } from './src/utils/nav';
@@ -25,7 +25,31 @@ const projectInputs = Object.fromEntries([...Array(3).keys()]
 
 const input = { ...navInputs, ...projectInputs, standalone: hrefToPath(['', '/standalone/'])[1] };
 
+function getBase() {
+	const args = process.argv.slice(3);
+	const argIndex = args.findIndex((value) => value == "--base" || value.startsWith("--base="))
+	if (argIndex < 0) {
+		return "/";
+	}
+	if (args[argIndex] === "--base") {
+		return args[argIndex + 1] || '/';
+	}
+
+	const arg = args[argIndex].substring("--base=".length);
+	return arg || "/";
+}
+
+const stripSlash = (base: string) => base.endsWith('/') ? base.substring(0, base.length - 1) : base;
+
+const appRootBase = stripSlash(getBase());
+const appRoot = JSON.stringify(appRootBase);
+
+if (appRootBase.length > 0) {
+	console.log("Building application inside", appRootBase);
+}
+
 export default {
+	define: { appRoot },
 	build: {
 		rollupOptions: { input },
 	},

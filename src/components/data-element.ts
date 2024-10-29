@@ -1,6 +1,7 @@
 import { PropertyValues } from "lit";
 import { ShadowedElement } from "./shadowed-element";
 import { loadInfo } from "../utils/fetch";
+import { applyAppBase } from "../utils/vite";
 
 export class DataElement<DataType> extends ShadowedElement {
 	static properties = {
@@ -22,10 +23,10 @@ export class DataElement<DataType> extends ShadowedElement {
 
 	async #fetchData(src: string | undefined) {
 		if (src) {
-			this.#base = new URL(src, window.location.toString());
+			this.#base = new URL(applyAppBase(src), window.location.toString());
 		}
 
-		this.data = (await loadInfo<DataType[]>(src)) ?? [];
+		this.data = (await loadInfo<DataType[]>(this.#base.pathname)) ?? [];
 		this.dataUpdated(this.data);
 		this.requestUpdate();
 	}
@@ -38,6 +39,6 @@ export class DataElement<DataType> extends ShadowedElement {
 		if (url === undefined) {
 			return undefined;
 		}
-		return new URL(url, this.#base).pathname;
+		return new URL(applyAppBase(url), this.#base).pathname;
 	}
 }
