@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WAVES - Creative Agency Portfolio</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/style/root.css">
+    <style>
+		section {
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <standalone-nav>
+        <section id="home">
+            <brand-intro>
+                <h1 class="top">WAVES</h1>
+                <p>Crafting digital experiences that make waves in the industry. We're not just an agency; we're innovators, storytellers, and problem-solvers dedicated to elevating your brand's online presence.</p>
+                <link-button href="#contact">Get in Touch</link-button>
+            </brand-intro>
+        </section>
+
+        <section id="about">
+            <h2 class="top">About Us</h2>
+            <p>At WAVES, we believe in the power of creative storytelling and innovative design. Our team of passionate professionals is dedicated to bringing your vision to life, creating digital experiences that resonate with your audience and drive real results.</p>
+            <p>With expertise in web design, branding, and digital marketing, we're here to help your business make waves in the digital landscape.</p>
+        </section>
+
+        <section id="works">
+            <h2 class="top">Our Works</h2>
+            <work-list src="/pages/works/pinned.yaml"></work-list>
+            <h3>Client Reviews</h3>
+            <review-list src="/pages/works/reviews.yaml" ></review-list>
+        </section>
+
+        <section id="video">
+            <h2 class="top">Video Portfolio</h2>
+            <video-carousel src="/pages/video/carousel.yaml"></video-carousel>
+        </section>
+
+        <section id="faq">
+            <h2 class="top">Frequently Asked Questions</h2>
+            <faq-accordion src="/pages/faq/questions.yaml"></faq-accordion>
+        </section>
+
+        <section id="contact">
+            <h2 class="top">Get In Touch</h2>
+            <mail-form></mail-form>
+        </section>
+
+    </standalone-nav>
+
+    <preview-modal></preview-modal>
+
+    <script type="module" src="/src/components/standalone-nav.ts"></script>
+    <script type="module" src="/src/components/brand-intro.ts"></script>
+    <script type="module" src="/src/components/link-button.ts"></script>
+    <script type="module" src="/src/components/work-list.ts"></script>
+    <script type="module" src="/src/components/review-list.ts"></script>
+    <script type="module" src="/src/components/preview-modal.ts"></script>
+    <script type="module" src="/src/components/video-carousel.ts"></script>
+    <script type="module" src="/src/components/faq-accordion.ts"></script>
+    <script type="module" src="/src/components/mail-form.ts"></script>
+</body>
+</html>

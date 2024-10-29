@@ -1,0 +1,18 @@
+- poster: /images/poster-video1.jpg
+  sources:
+  - src: video1.mov
+    type: video/mp4; codec="avc1.4d401e, aac"
+  - src: video1.ogg
+    type: video/ogg; codec="theora, vorbis"
+- poster: /images/poster-video2.jpg
+  sources:
+  - src: video2.mp4
+    type: video/mp4; codec="avc1.6e001e, mp3"
+  - src: video2.mkv
+    type: video/matroska
+- poster: /images/poster-video3.jpg
+  sources:
+  - src: video3.avi
+    type: video/avi
+  - src: video3.mp4
+    type: video/mp4

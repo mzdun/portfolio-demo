@@ -1,0 +1,32 @@
+- name: John Doe
+  stars: 5
+  review: |
+    WAVES transformed our online presence. Their creativity and attention to detail are unmatched!
+
+    Second line will be another paragraph. Some **Markdown** is *supported*, yay.
+
+- name: Jane Smith
+  stars: 4.5
+  review: |
+    Working with WAVES was a game-changer for our brand. Highly recommended!
+
+- name: Mike Johnson
+  stars: 5
+  review: |
+    The team at WAVES is incredibly talented and professional. They delivered beyond our expectations.
+
+- name: Sarah Lee
+  stars: 4
+  review: |
+    WAVES brought our vision to life with their innovative approach and expert execution.
+
+- name: David Brown
+  stars: 5
+  review: |
+    The results speak for themselves. WAVES delivered a website that truly represents our brand.
+
+- name: Emily Chen
+  stars: 4.5
+  review: |
+    Creative, responsive, and results-driven. WAVES is the partner you want for digital success.
+

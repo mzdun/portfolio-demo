@@ -1,0 +1,12 @@
+- title: Project Title 1
+  description: Brief description of the project and its impact.
+  preview: /images/project1.jpg
+
+- title: Project Title 2
+  description: Brief description of the project and its impact.
+  preview: /images/project2.jpg
+
+- title: Project Title 3
+  description: Brief description of the project and its impact.
+  preview: /images/project3.jpg
+  link: /projects/project3/

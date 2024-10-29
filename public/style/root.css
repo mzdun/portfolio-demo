@@ -1,0 +1,32 @@
+:root {
+  --main-bg-color: #0b0b0b;
+  --text-color: #ffffff;
+  --secondary-color: #5b6285;
+  --accent-color: #3498db;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --button-bg-color: #333333;
+  --button-hover-color: #444444;
+  --text-font-family: Switzer;
+}
+
+@font-face {
+  font-family: Switzer;
+  src: url(Switzer-Variable.ttf);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--text-font-family);
+  color: var(--text-color);
+  background-color: var(--main-bg-color);
+}
+
+h1.top,
+h2.top,
+h3.top,
+h4.top,
+h5.top,
+h6.top {
+  margin-top: 0;
+}
